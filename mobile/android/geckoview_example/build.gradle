@@ -48,7 +48,17 @@ dependencies {
     implementation libs.androidx.core
     implementation libs.androidx.preferences
 
-    implementation project(path: ':geckoview')
+    if (project.hasProperty('test_substitute_local_geckoview')) {
+        // Allow to test using `substitute-local-geckoview.gradle`.
+        implementation "org.mozilla.geckoview:geckoview-nightly-omni:+"
+    } else {
+        implementation project(path: ':geckoview')
+    }
     implementation libs.androidx.constraintlayout
     implementation libs.google.material
+}
+
+if (project.hasProperty('test_substitute_local_geckoview')) {
+    // Allow to test using `substitute-local-geckoview.gradle`.
+    apply from: "${topsrcdir}/substitute-local-geckoview.gradle"
 }

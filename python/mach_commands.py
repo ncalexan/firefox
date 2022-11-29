@@ -194,6 +194,8 @@ def run_python_tests(
     sequential = []
     os.environ.setdefault("PYTEST_ADDOPTS", "")
 
+    os.environ["PYTEST_ADDOPTS"] += "-o log_cli=1"
+
     if extra:
         os.environ["PYTEST_ADDOPTS"] += " " + " ".join(extra)
 
