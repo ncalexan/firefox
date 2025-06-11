@@ -536,6 +536,15 @@ sonatype-nexus:
         strip-components: 1
         add-prefix: sonatype-nexus/
 
+reposilite:
+    description: "Reposilite: lightweight and easy-to-use repository manager for Maven-based artifacts in the JVM ecosystem."
+    fetch:
+        type: static-url
+        url: https://maven.reposilite.com/releases/com/reposilite/reposilite/3.5.24/reposilite-3.5.24-all.jar
+        sha256: 1f2039f5fe0e8376c64dee6111286402dd2397dacb501cc6006c542a0255f58d
+        size: 73324890
+        artifact-name: reposilite.jar
+
 jdk-8-linux64:
     description: Java 8 JDK
     fetch:

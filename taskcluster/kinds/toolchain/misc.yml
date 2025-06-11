@@ -759,6 +759,25 @@ linux64-cargo-apk:
             - linux64-rust-toolchain
             - sysroot-x86_64-linux-gnu
 
+reposilite:
+    # Bootstrap cannot use fetches directly, so we have this task to
+    # expose the corresponding fetch as a toolchain artifact.
+    description: "Reposilite: lightweight and easy-to-use repository manager for Maven-based artifacts in the JVM ecosystem."
+    attributes:
+        local-toolchain: true
+    treeherder:
+        symbol: TL(reposilite)
+    run:
+        script: dummy.sh
+        toolchain-artifact: public/build/reposilite.jar
+    dependencies:
+        fetch-reposilite: fetch-reposilite
+    fetches:
+        fetch-reposilite:
+            - artifact: reposilite.jar
+              extract: false
+              dest: ../artifacts
+
 windows-rs:
     # Bootstrap cannot use fetches directly, so we have this task to
     # expose the corresponding fetch as a toolchain artifact.
