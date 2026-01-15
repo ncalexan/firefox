@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ArchUnitBaseline>
+  <IntralayerRules/>
+  <InterlayerRules>
+    <Rule context="Set 'theme' in Layer 'base' should not depend on Layer 'application'" source_layer="base" source_set="theme" target_layer="application">
+      <target>org.mozilla.fenix.R$attr.layer3</target>
+      <target>org.mozilla.fenix.R$style.NormalTheme</target>
+      <target>org.mozilla.fenix.R$style.PrivateTheme</target>
+      <target>org.mozilla.fenix.browser.BrowserFragment</target>
+      <target>org.mozilla.fenix.browser.browsingmode.BrowsingMode</target>
+      <target>org.mozilla.fenix.browser.browsingmode.BrowsingMode.Normal</target>
+      <target>org.mozilla.fenix.browser.browsingmode.BrowsingMode.Private</target>
+      <target>org.mozilla.fenix.browser.browsingmode.BrowsingMode.isPrivate()</target>
+      <target>org.mozilla.fenix.browser.browsingmode.BrowsingMode.ordinal()</target>
+      <target>org.mozilla.fenix.browser.browsingmode.BrowsingMode.values()</target>
+      <target>org.mozilla.fenix.customtabs.ExternalAppBrowserActivity</target>
+      <target>org.mozilla.fenix.customtabs.ExternalAppBrowserFragment</target>
+      <target>org.mozilla.fenix.ext.ContextKt.settings(android.content.Context)</target>
+      <target>org.mozilla.fenix.home.HomeFragment</target>
+      <target>org.mozilla.fenix.search.SearchDialogFragment</target>
+      <target>org.mozilla.fenix.utils.Settings.getLastKnownMode()</target>
+    </Rule>
+    <Rule context="Set 'downloads' in Layer 'modules' should not depend on Layer 'application'" source_layer="modules" source_set="downloads" target_layer="application">
+      <target>org.mozilla.fenix.R$color.fx_mobile_text_color_accent</target>
+      <target>org.mozilla.fenix.R$drawable.ic_file_type_apk</target>
+      <target>org.mozilla.fenix.R$drawable.ic_file_type_audio_note</target>
+      <target>org.mozilla.fenix.R$drawable.ic_file_type_default</target>
+      <target>org.mozilla.fenix.R$drawable.ic_file_type_document</target>
+      <target>org.mozilla.fenix.R$drawable.ic_file_type_image</target>
+      <target>org.mozilla.fenix.R$drawable.ic_file_type_video</target>
+      <target>org.mozilla.fenix.R$drawable.ic_file_type_zip</target>
+      <target>org.mozilla.fenix.R$drawable.illustration_fox_box_inside_light</target>
+      <target>org.mozilla.fenix.R$string.content_description_menu</target>
+      <target>org.mozilla.fenix.R$string.download_app_dialog_title</target>
+      <target>org.mozilla.fenix.R$string.download_clear_search_description</target>
+      <target>org.mozilla.fenix.R$string.download_close_search_description</target>
+      <target>org.mozilla.fenix.R$string.download_content_type_filter_all</target>
+      <target>org.mozilla.fenix.R$string.download_content_type_filter_document</target>
+      <target>org.mozilla.fenix.R$string.download_content_type_filter_image</target>
+      <target>org.mozilla.fenix.R$string.download_content_type_filter_other_1</target>
+      <target>org.mozilla.fenix.R$string.download_content_type_filter_video</target>
+      <target>org.mozilla.fenix.R$string.download_delete_item</target>
+      <target>org.mozilla.fenix.R$string.download_delete_multi_select_dialog_cancel</target>
+      <target>org.mozilla.fenix.R$string.download_delete_multi_select_dialog_confirm</target>
+      <target>org.mozilla.fenix.R$string.download_delete_multi_select_dialog_confirmation</target>
+      <target>org.mozilla.fenix.R$string.download_delete_multiple_items_snackbar_2</target>
+      <target>org.mozilla.fenix.R$string.download_delete_single_item_snackbar_2</target>
+      <target>org.mozilla.fenix.R$string.download_empty_description</target>
+      <target>org.mozilla.fenix.R$string.download_empty_message_2</target>
+      <target>org.mozilla.fenix.R$string.download_header_in_progress</target>
+      <target>org.mozilla.fenix.R$string.download_item_in_progress_description_2</target>
+      <target>org.mozilla.fenix.R$string.download_item_in_progress_description_pending</target>
+      <target>org.mozilla.fenix.R$string.download_item_in_progress_description_preparing</target>
+      <target>org.mozilla.fenix.R$string.download_item_in_progress_description_unknown_total_size</target>
+      <target>org.mozilla.fenix.R$string.download_item_paused_description</target>
+      <target>org.mozilla.fenix.R$string.download_item_paused_description_unknown_total_size</target>
+      <target>org.mozilla.fenix.R$string.download_item_status_failed</target>
+      <target>org.mozilla.fenix.R$string.download_multi_select_title</target>
+      <target>org.mozilla.fenix.R$string.download_navigate_back_description</target>
+      <target>org.mozilla.fenix.R$string.download_navigate_settings_description</target>
+      <target>org.mozilla.fenix.R$string.download_pause_action</target>
+      <target>org.mozilla.fenix.R$string.download_resume_action</target>
+      <target>org.mozilla.fenix.R$string.download_retry_action</target>
+      <target>org.mozilla.fenix.R$string.download_search_no_results_found</target>
+      <target>org.mozilla.fenix.R$string.download_search_placeholder</target>
+      <target>org.mozilla.fenix.R$string.download_select_all_items</target>
+      <target>org.mozilla.fenix.R$string.download_share_file</target>
+      <target>org.mozilla.fenix.R$string.download_share_url</target>
+      <target>org.mozilla.fenix.R$string.download_time_period_last_30_days</target>
+      <target>org.mozilla.fenix.R$string.download_time_period_last_7_days</target>
+      <target>org.mozilla.fenix.R$string.download_time_period_older</target>
+      <target>org.mozilla.fenix.R$string.download_time_period_today</target>
+      <target>org.mozilla.fenix.R$string.download_time_period_yesterday</target>
+      <target>org.mozilla.fenix.R$string.download_undo_delete_snackbar_action</target>
+      <target>org.mozilla.fenix.R$string.library_downloads</target>
+      <target>org.mozilla.fenix.components.AppStore</target>
+      <target>org.mozilla.fenix.components.AppStore.&lt;init&gt;(org.mozilla.fenix.components.appstate.AppState, java.util.List, int, kotlin.jvm.internal.DefaultConstructorMarker)</target>
+      <target>org.mozilla.fenix.components.AppStore.dispatch(mozilla.components.lib.state.Action)</target>
+      <target>org.mozilla.fenix.components.AppStore.getState()</target>
+      <target>org.mozilla.fenix.components.Components</target>
+      <target>org.mozilla.fenix.components.Components.getAppStore()</target>
+      <target>org.mozilla.fenix.components.Components.getCore()</target>
+      <target>org.mozilla.fenix.components.Components.getNotificationsDelegate()</target>
+      <target>org.mozilla.fenix.components.Components.getUseCases()</target>
+      <target>org.mozilla.fenix.components.Core.getClient()</target>
+      <target>org.mozilla.fenix.components.Core.getDownloadEstimator()</target>
+      <target>org.mozilla.fenix.components.Core.getFileSizeFormatter()</target>
+      <target>org.mozilla.fenix.components.Core.getStore()</target>
+      <target>org.mozilla.fenix.components.UseCases.getDownloadUseCases()</target>
+      <target>org.mozilla.fenix.components.appstate.AppAction$MenuNotification$RemoveMenuNotification.&lt;init&gt;(org.mozilla.fenix.components.appstate.SupportedMenuNotifications)</target>
+      <target>org.mozilla.fenix.components.appstate.AppAction$SnackbarAction$SnackbarDismissed.INSTANCE</target>
+      <target>org.mozilla.fenix.components.appstate.AppState.&lt;init&gt;(boolean, boolean, boolean, boolean, java.util.List, java.util.List, java.util.Set, org.mozilla.fenix.browser.browsingmode.BrowsingMode, org.mozilla.fenix.components.appstate.OrientationMode, java.util.List, boolean, java.util.List, org.mozilla.fenix.home.recentsyncedtabs.RecentSyncedTabState, java.util.List, java.util.List, org.mozilla.fenix.components.appstate.recommendations.ContentRecommendationsState, org.mozilla.fenix.messaging.MessagingState, java.util.Set, org.mozilla.fenix.wallpapers.WallpaperState, org.mozilla.fenix.browser.StandardSnackbarError, org.mozilla.fenix.components.appstate.readerview.ReaderViewState, org.mozilla.fenix.components.appstate.snackbar.SnackbarState, java.util.Set, boolean, mozilla.components.lib.crash.store.CrashState, java.lang.Boolean, boolean, org.mozilla.fenix.components.appstate.webcompat.WebCompatState, org.mozilla.fenix.components.appstate.setup.checklist.SetupChecklistState, org.mozilla.fenix.components.appstate.search.SearchState, org.mozilla.fenix.components.appstate.qrScanner.QrScannerState, boolean, org.mozilla.fenix.reviewprompt.ReviewPromptState, org.mozilla.fenix.components.appstate.VoiceSearchState, int, int, kotlin.jvm.internal.DefaultConstructorMarker)</target>
+      <target>org.mozilla.fenix.components.appstate.AppState.getSnackbarState()</target>
+      <target>org.mozilla.fenix.components.appstate.SupportedMenuNotifications$Downloads.INSTANCE</target>
+      <target>org.mozilla.fenix.components.appstate.snackbar.SnackbarState$DownloadCompleted.&lt;init&gt;(mozilla.components.browser.state.state.content.DownloadState)</target>
+      <target>org.mozilla.fenix.components.appstate.snackbar.SnackbarState$DownloadInProgress</target>
+      <target>org.mozilla.fenix.components.appstate.snackbar.SnackbarState$DownloadInProgress.&lt;init&gt;(java.lang.String)</target>
+      <target>org.mozilla.fenix.components.appstate.snackbar.SnackbarState$DownloadInProgress.getDownloadId()</target>
+      <target>org.mozilla.fenix.components.appstate.snackbar.SnackbarState$None</target>
+      <target>org.mozilla.fenix.components.appstate.snackbar.SnackbarState$None.&lt;init&gt;(org.mozilla.fenix.components.appstate.snackbar.SnackbarState)</target>
+      <target>org.mozilla.fenix.components.appstate.snackbar.SnackbarState$None.getPrevious()</target>
+      <target>org.mozilla.fenix.compose.ext.LazyListStateKt.isItemPartiallyVisible(androidx.compose.foundation.lazy.LazyListState, androidx.compose.foundation.lazy.LazyListItemInfo)</target>
+      <target>org.mozilla.fenix.compose.list.ExpandableListHeaderKt.ExpandableListHeader-QbvVL9M(java.lang.String, androidx.compose.ui.text.TextStyle, long, long, androidx.compose.foundation.layout.PaddingValues, java.lang.Boolean, java.lang.String, java.lang.String, kotlin.jvm.functions.Function0, kotlin.jvm.functions.Function2, androidx.compose.runtime.Composer, int, int)</target>
+      <target>org.mozilla.fenix.compose.list.ListItemKt.SelectableListItem-eT8-oeM(java.lang.String, java.lang.String, int, boolean, androidx.compose.ui.Modifier, java.lang.String, long, long, int, kotlin.jvm.functions.Function3, kotlin.jvm.functions.Function3, boolean, androidx.compose.runtime.Composer, int, int, int)</target>
+      <target>org.mozilla.fenix.compose.snackbar.Snackbar$Companion.make(android.view.View, org.mozilla.fenix.compose.snackbar.SnackbarState)</target>
+      <target>org.mozilla.fenix.compose.snackbar.Snackbar.Companion</target>
+      <target>org.mozilla.fenix.compose.snackbar.Snackbar.show()</target>
+      <target>org.mozilla.fenix.compose.snackbar.SnackbarState.&lt;init&gt;(java.lang.String, org.mozilla.fenix.compose.snackbar.SnackbarState$SubMessage, org.mozilla.fenix.compose.snackbar.SnackbarState$Duration, org.mozilla.fenix.compose.snackbar.SnackbarState$Type, org.mozilla.fenix.compose.core.Action, boolean, kotlin.jvm.functions.Function0, int, kotlin.jvm.internal.DefaultConstructorMarker)</target>
+      <target>org.mozilla.fenix.ext.ContextKt.getComponents(android.content.Context)</target>
+      <target>org.mozilla.fenix.ext.ContextKt.settings(android.content.Context)</target>
+      <target>org.mozilla.fenix.ext.FragmentKt.hideToolbar(androidx.fragment.app.Fragment)</target>
+      <target>org.mozilla.fenix.ext.StringKt.getBaseDomainUrl(java.lang.String)</target>
+      <target>org.mozilla.fenix.helpers.FenixGleanTestRule</target>
+      <target>org.mozilla.fenix.helpers.FenixGleanTestRule.&lt;init&gt;(android.content.Context, mozilla.telemetry.glean.config.Configuration, int, kotlin.jvm.internal.DefaultConstructorMarker)</target>
+      <target>org.mozilla.fenix.settings.settingssearch.PreferenceFileInformation$DownloadsSettingsPreferences.INSTANCE</target>
+      <target>org.mozilla.fenix.settings.settingssearch.PreferenceFileInformation$DownloadsSettingsPreferences.getFragmentId()</target>
+      <target>org.mozilla.fenix.utils.Settings</target>
+      <target>org.mozilla.fenix.utils.Settings.getAccessibilityServicesEnabled()</target>
+      <target>org.mozilla.fenix.utils.UndoKt.getUndoDelay(android.content.Context)</target>
+    </Rule>
+    <Rule context="Set 'iconpicker' in Layer 'modules' should not depend on Layer 'application'" source_layer="modules" source_set="iconpicker" target_layer="application">
+      <target>mozilla.telemetry.glean.private.EventMetricType&lt;org.mozilla.fenix.GleanMetrics.AppIconSelection$AppIconSelectionConfirmedExtra&gt;</target>
+      <target>mozilla.telemetry.glean.private.EventMetricType&lt;org.mozilla.fenix.GleanMetrics.AppIconSelection$ErrorSnackbarShownExtra&gt;</target>
+      <target>org.mozilla.fenix.GleanMetrics.AppIconSelection$AppIconSelectionConfirmedExtra.&lt;init&gt;(java.lang.String, java.lang.String)</target>
+      <target>org.mozilla.fenix.GleanMetrics.AppIconSelection$ErrorSnackbarShownExtra.&lt;init&gt;(java.lang.String, java.lang.String)</target>
+      <target>org.mozilla.fenix.GleanMetrics.CustomizationSettings.INSTANCE</target>
+      <target>org.mozilla.fenix.GleanMetrics.CustomizationSettings.appIconSelectionTapped()</target>
+      <target>org.mozilla.fenix.R$color.ic_launcher_background</target>
+      <target>org.mozilla.fenix.R$drawable.ic_cool</target>
+      <target>org.mozilla.fenix.R$drawable.ic_cuddling</target>
+      <target>org.mozilla.fenix.R$drawable.ic_firefox</target>
+      <target>org.mozilla.fenix.R$drawable.ic_flaming</target>
+      <target>org.mozilla.fenix.R$drawable.ic_launcher_background_cool</target>
+      <target>org.mozilla.fenix.R$drawable.ic_launcher_background_cuddling</target>
+      <target>org.mozilla.fenix.R$drawable.ic_launcher_gradient_blue_hour_background</target>
+      <target>org.mozilla.fenix.R$drawable.ic_launcher_gradient_golden_hour_background</target>
+      <target>org.mozilla.fenix.R$drawable.ic_launcher_gradient_midnight_background</target>
+      <target>org.mozilla.fenix.R$drawable.ic_launcher_gradient_northern_lights_background</target>
+      <target>org.mozilla.fenix.R$drawable.ic_launcher_gradient_sunrise_background</target>
+      <target>org.mozilla.fenix.R$drawable.ic_launcher_gradient_sunset_background</target>
+      <target>org.mozilla.fenix.R$drawable.ic_launcher_gradient_twilight_background</target>
+      <target>org.mozilla.fenix.R$drawable.ic_launcher_solid_blue_background</target>
+      <target>org.mozilla.fenix.R$drawable.ic_launcher_solid_green_background</target>
+      <target>org.mozilla.fenix.R$drawable.ic_launcher_solid_purple_background</target>
+      <target>org.mozilla.fenix.R$drawable.ic_launcher_solid_purple_dark_background</target>
+      <target>org.mozilla.fenix.R$drawable.ic_launcher_solid_red_background</target>
+      <target>org.mozilla.fenix.R$drawable.ic_minimal</target>
+      <target>org.mozilla.fenix.R$drawable.ic_momo</target>
+      <target>org.mozilla.fenix.R$drawable.ic_pixelated</target>
+      <target>org.mozilla.fenix.R$drawable.ic_pride</target>
+      <target>org.mozilla.fenix.R$drawable.ic_retro_2004</target>
+      <target>org.mozilla.fenix.R$id.compose_view</target>
+      <target>org.mozilla.fenix.R$layout.app_icon_preference</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_group_featured</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_group_gradients</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_group_solid_colors</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_blue</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_cool</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_cuddling</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_dark</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_default</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_flaming</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_gradient_blue_hour</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_gradient_golden_hour</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_gradient_midnight</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_gradient_northern_lights</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_gradient_sunrise</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_gradient_sunset</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_gradient_twilight</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_green</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_light</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_minimal</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_momo</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_momo_subtitle</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_pixelated</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_pride</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_purple</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_purple_dark</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_red</target>
+      <target>org.mozilla.fenix.R$string.alternative_app_icon_option_retro_2004</target>
+      <target>org.mozilla.fenix.R$string.app_name</target>
+      <target>org.mozilla.fenix.R$string.preference_select_app_icon_title</target>
+      <target>org.mozilla.fenix.R$string.preferences_app_icon</target>
+      <target>org.mozilla.fenix.R$string.restart_and_shortcuts_removal_warning_dialog_body</target>
+      <target>org.mozilla.fenix.R$string.restart_warning_dialog_body_2</target>
+      <target>org.mozilla.fenix.R$string.restart_warning_dialog_button_negative</target>
+      <target>org.mozilla.fenix.R$string.restart_warning_dialog_button_positive_2</target>
+      <target>org.mozilla.fenix.R$string.restart_warning_dialog_title</target>
+      <target>org.mozilla.fenix.R$string.shortcuts_update_error</target>
+      <target>org.mozilla.fenix.components.Analytics.getCrashReporter()</target>
+      <target>org.mozilla.fenix.components.Components.getAnalytics()</target>
+      <target>org.mozilla.fenix.compose.button.RadioButtonKt.RadioButton(boolean, androidx.compose.ui.Modifier, boolean, androidx.compose.material3.RadioButtonColors, kotlin.jvm.functions.Function0, androidx.compose.runtime.Composer, int, int)</target>
+      <target>org.mozilla.fenix.ext.ContextKt.getComponents(android.content.Context)</target>
+      <target>org.mozilla.fenix.ext.FragmentKt.showToolbar(androidx.fragment.app.Fragment, java.lang.String)</target>
+      <target>org.mozilla.fenix.helpers.FenixGleanTestRule</target>
+      <target>org.mozilla.fenix.helpers.FenixGleanTestRule.&lt;init&gt;(android.content.Context, mozilla.telemetry.glean.config.Configuration, int, kotlin.jvm.internal.DefaultConstructorMarker)</target>
+      <target>org.mozilla.fenix.utils.ChangeAppLauncherIconKt.changeAppLauncherIcon$default(android.content.pm.PackageManager, org.mozilla.fenix.utils.ShortcutManagerWrapper, org.mozilla.fenix.utils.ShortcutsUpdater, android.content.ComponentName, android.content.ComponentName, mozilla.components.concept.base.crash.CrashReporting, kotlin.jvm.functions.Function4, int, java.lang.Object)</target>
+      <target>org.mozilla.fenix.utils.ShortcutManagerWrapperDefault.&lt;init&gt;(android.content.Context)</target>
+      <target>org.mozilla.fenix.utils.ShortcutManagerWrapperDefault.getPinnedShortcuts()</target>
+      <target>org.mozilla.fenix.utils.ShortcutsUpdaterDefault.&lt;init&gt;(android.content.Context)</target>
+    </Rule>
+    <Rule context="Set 'microsurvey' in Layer 'modules' should not depend on Layer 'application'" source_layer="modules" source_set="microsurvey" target_layer="application">
+      <target>org.mozilla.fenix.HomeActivity</target>
+      <target>org.mozilla.fenix.HomeActivity.&lt;init&gt;()</target>
+      <target>org.mozilla.fenix.HomeActivity.isMicrosurveyPromptDismissed()</target>
+      <target>org.mozilla.fenix.R$drawable.ic_firefox</target>
+      <target>org.mozilla.fenix.R$drawable.ic_print</target>
+      <target>org.mozilla.fenix.R$drawable.microsurvey_success</target>
+      <target>org.mozilla.fenix.R$string.likert_scale_option_1</target>
+      <target>org.mozilla.fenix.R$string.likert_scale_option_2</target>
+      <target>org.mozilla.fenix.R$string.likert_scale_option_3</target>
+      <target>org.mozilla.fenix.R$string.likert_scale_option_4</target>
+      <target>org.mozilla.fenix.R$string.likert_scale_option_5</target>
+      <target>org.mozilla.fenix.R$string.likert_scale_option_6</target>
+      <target>org.mozilla.fenix.R$string.micro_survey_continue_button_label</target>
+      <target>org.mozilla.fenix.R$string.micro_survey_feedback_confirmation</target>
+      <target>org.mozilla.fenix.R$string.micro_survey_privacy_notice_2</target>
+      <target>org.mozilla.fenix.R$string.micro_survey_submit_button_label</target>
+      <target>org.mozilla.fenix.R$string.micro_survey_survey_header_2</target>
+      <target>org.mozilla.fenix.R$string.microsurvey_app_icon_content_description</target>
+      <target>org.mozilla.fenix.R$string.microsurvey_close_button_content_description</target>
+      <target>org.mozilla.fenix.R$string.microsurvey_close_handle_content_description</target>
+      <target>org.mozilla.fenix.R$string.microsurvey_feature_icon_content_description</target>
+      <target>org.mozilla.fenix.components.Components.getAppStore()</target>
+      <target>org.mozilla.fenix.components.Components.getNimbus()</target>
+      <target>org.mozilla.fenix.components.NimbusComponents.getMessaging()</target>
+      <target>org.mozilla.fenix.compose.BottomSheetHandleKt.BottomSheetHandle-ww6aTOc(kotlin.jvm.functions.Function0, java.lang.String, androidx.compose.ui.Modifier, long, androidx.compose.runtime.Composer, int, int)</target>
+      <target>org.mozilla.fenix.compose.LinkTextKt.LinkText-eFe2jeY(java.lang.String, java.util.List, androidx.compose.ui.text.TextStyle, long, androidx.compose.ui.text.style.TextDecoration, androidx.compose.ui.text.style.TextAlign, boolean, androidx.compose.runtime.Composer, int, int)</target>
+      <target>org.mozilla.fenix.compose.LinkTextState.&lt;init&gt;(java.lang.String, java.lang.String, kotlin.jvm.functions.Function1)</target>
+      <target>org.mozilla.fenix.compose.list.ListItemKt.RadioButtonListItem(java.lang.String, boolean, androidx.compose.ui.Modifier, java.lang.String, int, java.lang.String, int, boolean, boolean, kotlin.jvm.functions.Function0, androidx.compose.runtime.Composer, int, int)</target>
+      <target>org.mozilla.fenix.ext.ContextKt.getComponents(android.content.Context)</target>
+      <target>org.mozilla.fenix.ext.ContextKt.settings(android.content.Context)</target>
+      <target>org.mozilla.fenix.ext.FragmentKt.getRequireComponents(androidx.fragment.app.Fragment)</target>
+      <target>org.mozilla.fenix.messaging.MicrosurveyMessageController</target>
+      <target>org.mozilla.fenix.messaging.MicrosurveyMessageController.&lt;init&gt;(org.mozilla.fenix.components.AppStore, org.mozilla.fenix.HomeActivity)</target>
+      <target>org.mozilla.fenix.messaging.MicrosurveyMessageController.onMicrosurveyDismissed(java.lang.String)</target>
+      <target>org.mozilla.fenix.messaging.MicrosurveyMessageController.onMicrosurveyShown(java.lang.String)</target>
+      <target>org.mozilla.fenix.messaging.MicrosurveyMessageController.onPrivacyPolicyLinkClicked(java.lang.String, java.lang.String)</target>
+      <target>org.mozilla.fenix.messaging.MicrosurveyMessageController.onSurveyCompleted(java.lang.String, java.lang.String)</target>
+      <target>org.mozilla.fenix.utils.Settings.setShouldShowMicrosurveyPrompt(boolean)</target>
+    </Rule>
+    <Rule context="Set 'reviewprompt' in Layer 'modules' should not depend on Layer 'application'" source_layer="modules" source_set="reviewprompt" target_layer="application">
+      <target>kotlin.jvm.functions.Function1&lt;? super org.mozilla.fenix.components.appstate.AppAction, kotlin.Unit&gt;</target>
+      <target>kotlin.jvm.functions.Function3&lt;mozilla.components.lib.state.Store&lt;org.mozilla.fenix.components.appstate.AppState, org.mozilla.fenix.components.appstate.AppAction&gt;, kotlin.jvm.functions.Function1&lt;? super org.mozilla.fenix.components.appstate.AppAction, ? extends kotlin.Unit&gt;, org.mozilla.fenix.components.appstate.AppAction, kotlin.Unit&gt;</target>
+      <target>kotlinx.coroutines.flow.Flow&lt;org.mozilla.fenix.components.appstate.AppState&gt;</target>
+      <target>mozilla.components.lib.state.Store&lt;org.mozilla.fenix.components.appstate.AppState, org.mozilla.fenix.components.appstate.AppAction&gt;</target>
+      <target>mozilla.components.lib.state.helpers.AbstractBinding&lt;org.mozilla.fenix.components.appstate.AppState&gt;</target>
+      <target>org.mozilla.fenix.NavGraphDirections$Companion.actionGlobalCustomReviewPromptDialogFragment()</target>
+      <target>org.mozilla.fenix.NavGraphDirections.Companion</target>
+      <target>org.mozilla.fenix.R$drawable.review_prompt_negative_button</target>
+      <target>org.mozilla.fenix.R$drawable.review_prompt_positive_button</target>
+      <target>org.mozilla.fenix.R$id.browserFragment</target>
+      <target>org.mozilla.fenix.R$string.firefox</target>
+      <target>org.mozilla.fenix.R$string.review_prompt_feedback_button</target>
+      <target>org.mozilla.fenix.R$string.review_prompt_feedback_header</target>
+      <target>org.mozilla.fenix.R$string.review_prompt_negative_button</target>
+      <target>org.mozilla.fenix.R$string.review_prompt_positive_button</target>
+      <target>org.mozilla.fenix.R$string.review_prompt_pre_prompt_header</target>
+      <target>org.mozilla.fenix.R$string.review_prompt_rate_button</target>
+      <target>org.mozilla.fenix.R$string.review_prompt_rate_header</target>
+      <target>org.mozilla.fenix.components.AppStore</target>
+      <target>org.mozilla.fenix.components.AppStore.&lt;init&gt;(org.mozilla.fenix.components.appstate.AppState, java.util.List)</target>
+      <target>org.mozilla.fenix.components.AppStore.&lt;init&gt;(org.mozilla.fenix.components.appstate.AppState, java.util.List, int, kotlin.jvm.internal.DefaultConstructorMarker)</target>
+      <target>org.mozilla.fenix.components.AppStore.dispatch(mozilla.components.lib.state.Action)</target>
+      <target>org.mozilla.fenix.components.AppStore.getState()</target>
+      <target>org.mozilla.fenix.components.Components.getPlayStoreReviewPromptController()</target>
+      <target>org.mozilla.fenix.components.Components.getUseCases()</target>
+      <target>org.mozilla.fenix.components.PlayStoreReviewPromptController</target>
+      <target>org.mozilla.fenix.components.PlayStoreReviewPromptController.tryLaunchPlayStoreReview(android.app.Activity)</target>
+      <target>org.mozilla.fenix.components.PlayStoreReviewPromptController.tryPromptReview$default(org.mozilla.fenix.components.PlayStoreReviewPromptController, android.app.Activity, kotlin.jvm.functions.Function0, kotlin.jvm.functions.Function0, kotlin.coroutines.Continuation, int, java.lang.Object)</target>
+      <target>org.mozilla.fenix.components.PlayStoreReviewPromptController.tryPromptReview(android.app.Activity, kotlin.jvm.functions.Function0, kotlin.jvm.functions.Function0, kotlin.coroutines.Continuation)</target>
+      <target>org.mozilla.fenix.components.UseCases.getTabsUseCases()</target>
+      <target>org.mozilla.fenix.components.appstate.AppAction</target>
+      <target>org.mozilla.fenix.components.appstate.AppAction$ReviewPromptAction</target>
+      <target>org.mozilla.fenix.components.appstate.AppAction$ReviewPromptAction$CheckIfEligibleForReviewPrompt.INSTANCE</target>
+      <target>org.mozilla.fenix.components.appstate.AppAction$ReviewPromptAction$DoNotShowReviewPrompt.INSTANCE</target>
+      <target>org.mozilla.fenix.components.appstate.AppAction$ReviewPromptAction$ReviewPromptShown</target>
+      <target>org.mozilla.fenix.components.appstate.AppAction$ReviewPromptAction$ReviewPromptShown.INSTANCE</target>
+      <target>org.mozilla.fenix.components.appstate.AppAction$ReviewPromptAction$ShowCustomReviewPrompt.INSTANCE</target>
+      <target>org.mozilla.fenix.components.appstate.AppAction$ReviewPromptAction$ShowPlayStorePrompt.INSTANCE</target>
+      <target>org.mozilla.fenix.components.appstate.AppState</target>
+      <target>org.mozilla.fenix.components.appstate.AppState.$stable</target>
+      <target>org.mozilla.fenix.components.appstate.AppState.&lt;init&gt;(boolean, boolean, boolean, boolean, java.util.List, java.util.List, java.util.Set, org.mozilla.fenix.browser.browsingmode.BrowsingMode, org.mozilla.fenix.components.appstate.OrientationMode, java.util.List, boolean, java.util.List, org.mozilla.fenix.home.recentsyncedtabs.RecentSyncedTabState, java.util.List, java.util.List, org.mozilla.fenix.components.appstate.recommendations.ContentRecommendationsState, org.mozilla.fenix.messaging.MessagingState, java.util.Set, org.mozilla.fenix.wallpapers.WallpaperState, org.mozilla.fenix.browser.StandardSnackbarError, org.mozilla.fenix.components.appstate.readerview.ReaderViewState, org.mozilla.fenix.components.appstate.snackbar.SnackbarState, java.util.Set, boolean, mozilla.components.lib.crash.store.CrashState, java.lang.Boolean, boolean, org.mozilla.fenix.components.appstate.webcompat.WebCompatState, org.mozilla.fenix.components.appstate.setup.checklist.SetupChecklistState, org.mozilla.fenix.components.appstate.search.SearchState, org.mozilla.fenix.components.appstate.qrScanner.QrScannerState, boolean, org.mozilla.fenix.reviewprompt.ReviewPromptState, org.mozilla.fenix.components.appstate.VoiceSearchState, int, int, kotlin.jvm.internal.DefaultConstructorMarker)</target>
+      <target>org.mozilla.fenix.components.appstate.AppState.copy$default(org.mozilla.fenix.components.appstate.AppState, boolean, boolean, boolean, boolean, java.util.List, java.util.List, java.util.Set, org.mozilla.fenix.browser.browsingmode.BrowsingMode, org.mozilla.fenix.components.appstate.OrientationMode, java.util.List, boolean, java.util.List, org.mozilla.fenix.home.recentsyncedtabs.RecentSyncedTabState, java.util.List, java.util.List, org.mozilla.fenix.components.appstate.recommendations.ContentRecommendationsState, org.mozilla.fenix.messaging.MessagingState, java.util.Set, org.mozilla.fenix.wallpapers.WallpaperState, org.mozilla.fenix.browser.StandardSnackbarError, org.mozilla.fenix.components.appstate.readerview.ReaderViewState, org.mozilla.fenix.components.appstate.snackbar.SnackbarState, java.util.Set, boolean, mozilla.components.lib.crash.store.CrashState, java.lang.Boolean, boolean, org.mozilla.fenix.components.appstate.webcompat.WebCompatState, org.mozilla.fenix.components.appstate.setup.checklist.SetupChecklistState, org.mozilla.fenix.components.appstate.search.SearchState, org.mozilla.fenix.components.appstate.qrScanner.QrScannerState, boolean, org.mozilla.fenix.reviewprompt.ReviewPromptState, org.mozilla.fenix.components.appstate.VoiceSearchState, int, int, java.lang.Object)</target>
+      <target>org.mozilla.fenix.components.appstate.AppState.getReviewPrompt()</target>
+      <target>org.mozilla.fenix.ext.FragmentKt.getRequireComponents(androidx.fragment.app.Fragment)</target>
+      <target>org.mozilla.fenix.helpers.FenixGleanTestRule</target>
+      <target>org.mozilla.fenix.helpers.FenixGleanTestRule.&lt;init&gt;(android.content.Context, mozilla.telemetry.glean.config.Configuration, int, kotlin.jvm.internal.DefaultConstructorMarker)</target>
+      <target>org.mozilla.fenix.nimbus.FakeNimbusEventStore</target>
+      <target>org.mozilla.fenix.nimbus.FakeNimbusEventStore.&lt;init&gt;()</target>
+      <target>org.mozilla.fenix.nimbus.FakeNimbusEventStore.assertSingleEventEquals(java.lang.String)</target>
+    </Rule>
+    <Rule context="Set 'startupCrash' in Layer 'modules' should not depend on Layer 'application'" source_layer="modules" source_set="startupCrash" target_layer="application">
+      <target>org.mozilla.fenix.R$drawable.fox_alert_crash_dark</target>
+      <target>org.mozilla.fenix.R$drawable.fox_alert_crash_light</target>
+      <target>org.mozilla.fenix.R$id.main</target>
+      <target>org.mozilla.fenix.R$id.startupCrashActivity</target>
+      <target>org.mozilla.fenix.R$layout.activity_startup_crash</target>
+      <target>org.mozilla.fenix.R$string.firefox</target>
+      <target>org.mozilla.fenix.R$string.startup_crash_body</target>
+      <target>org.mozilla.fenix.R$string.startup_crash_negative</target>
+      <target>org.mozilla.fenix.R$string.startup_crash_positive</target>
+      <target>org.mozilla.fenix.R$string.startup_crash_restart</target>
+      <target>org.mozilla.fenix.R$string.startup_crash_title</target>
+      <target>org.mozilla.fenix.components.Analytics.getCrashReporter()</target>
+      <target>org.mozilla.fenix.components.Components.getAnalytics()</target>
+      <target>org.mozilla.fenix.crashes.SettingsCrashReportCache.&lt;init&gt;(org.mozilla.fenix.utils.Settings)</target>
+      <target>org.mozilla.fenix.ext.ContextKt.getComponents(android.content.Context)</target>
+      <target>org.mozilla.fenix.ext.ContextKt.settings(android.content.Context)</target>
+      <target>org.mozilla.fenix.utils.Settings</target>
+    </Rule>
+  </InterlayerRules>
+</ArchUnitBaseline>

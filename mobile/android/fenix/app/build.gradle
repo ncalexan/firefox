@@ -26,6 +26,7 @@ plugins {
     alias(libs.plugins.protobuf.plugin)
     id 'ApkSizePlugin'
     id 'org.mozilla.conventions.zip-test-reports'
+    id 'org.mozilla.gradle.modularization'
     id 'org.mozilla.nimbus-gradle-plugin'
 }
 
@@ -35,6 +36,7 @@ apply plugin: 'jacoco'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
 apply plugin: 'kotlinx-serialization'
 apply plugin: 'com.google.devtools.ksp'
+apply plugin: 'org.mozilla.gradle.modularization'
 
 if (gradle.mozconfig.substs.MOZILLA_OFFICIAL) {
     apply plugin: 'com.google.android.gms.oss-licenses-plugin'
@@ -968,4 +970,15 @@ tasks.register("detekt", Exec) {
     description = "Run detekt static analysis."
     workingDir file("${gradle.mozconfig.topsrcdir}")
     commandLine "./mach", "gradle", "-p", "mobile/android/fenix", ":detekt"
+}
+
+import ArchUnitTask
+import ArchUnitCreateBaselineTask
+
+tasks.withType(ArchUnitTask).configureEach {
+    configurationFile = project.file("$project.projectDir/../config/detekt-modularization.yml")
+}
+
+tasks.withType(ArchUnitCreateBaselineTask).configureEach {
+    configurationFile = project.file("$project.projectDir/../config/detekt-modularization.yml")
 }
