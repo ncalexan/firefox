@@ -22,6 +22,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
     "moz-src:///toolkit/components/ipprotection/IPProtectionService.sys.mjs",
 });
 
+import { IPPDesktopEnrollAndEntitleManager } from "moz-src:///browser/components/ipprotection/IPPDesktopEnrollAndEntitleManager.sys.mjs";
 import { IPPDesktopSignInWatcher } from "moz-src:///browser/components/ipprotection/IPPDesktopSignInWatcher.sys.mjs";
 import { IPPOnboardingMessage } from "moz-src:///browser/components/ipprotection/IPPOnboardingMessageHelper.sys.mjs";
 import { IPProtectionAlertManager } from "moz-src:///browser/components/ipprotection/IPProtectionAlertManager.sys.mjs";
@@ -77,6 +78,7 @@ class UIHelper {
 }
 
 IPProtectionActivator.addHelpers([
+  IPPDesktopEnrollAndEntitleManager,
   IPPDesktopSignInWatcher,
   IPPOnboardingMessage,
   new UIHelper(),
