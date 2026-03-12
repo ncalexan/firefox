@@ -51,11 +51,13 @@ export const ERRORS = Object.freeze({
 const LOG_PREF = "browser.ipProtection.log";
 
 ChromeUtils.defineLazyGetter(lazy, "logConsole", function () {
-  return console.createInstance({
+    return console.createInstance({
     prefix: "IPPProxyManager",
     maxLogLevel: Services.prefs.getBoolPref(LOG_PREF, false) ? "Debug" : "Warn",
   });
 });
+
+lazy.logConsole.error("XXX XXX");
 
 /**
  * A Type containing the states of the IPPProxyManager.
@@ -158,6 +160,8 @@ class IPPProxyManagerSingleton extends EventTarget {
   }
 
   init() {
+      lazy.logConsole.debug(`init`);
+
     lazy.IPProtectionService.addEventListener(
       "IPProtectionService:StateChanged",
       this.handleEvent
@@ -168,9 +172,13 @@ class IPPProxyManagerSingleton extends EventTarget {
     }
   }
 
-  initOnStartupCompleted() {}
+  initOnStartupCompleted() {
+      lazy.logConsole.debug(`initOnStartupCompleted`);
+  }
 
   uninit() {
+      lazy.logConsole.debug(`uninit`);
+
     lazy.IPProtectionService.removeEventListener(
       "IPProtectionService:StateChanged",
       this.handleEvent
@@ -263,8 +271,11 @@ class IPPProxyManagerSingleton extends EventTarget {
    * Started is true if successfully connected, error contains the error message if it fails.
    */
   async start(userAction = true, inPrivateBrowsing = false) {
+      lazy.logConsole.debug(`start: userAction: ${userAction}, inPrivateBrowsing: ${inPrivateBrowsing}`);
     if (this.#state === IPPProxyStates.ACTIVATING) {
+          lazy.logConsole.debug(`start: ACTIVATING`);
       if (!this.#activatingPromise) {
+          lazy.logConsole.debug(`start: !activatingPromise`);
         throw new Error(ERRORS.MISSING_PROMISE);
       }
 
@@ -276,6 +287,7 @@ class IPPProxyManagerSingleton extends EventTarget {
       this.#state === IPPProxyStates.ERROR ||
       this.#state === IPPProxyStates.PAUSED
     ) {
+        lazy.logConsole.debug(`start: started: false ${this.#state}`);
       return { started: false };
     }
 
@@ -307,6 +319,7 @@ class IPPProxyManagerSingleton extends EventTarget {
     ])
       .then(
         started => {
+            lazy.logConsole.debug(`start: started!`);
           if (
             this.#state === IPPProxyStates.ERROR ||
             this.#state === IPPProxyStates.PAUSED
@@ -340,21 +353,27 @@ class IPPProxyManagerSingleton extends EventTarget {
   }
 
   async #startInternal(abortSignal) {
+      lazy.logConsole.debug(`#startInternal`);
     // Check network status before attempting connection
     if (lazy.IPPNetworkUtils.isOffline) {
+        lazy.logConsole.debug(`#startInternal: isOffline`);
       throw ERRORS.NETWORK;
     }
 
+      lazy.logConsole.debug(`#startInternal: maybeFetchList...`);
     await lazy.IPProtectionServerlist.maybeFetchList();
+      lazy.logConsole.debug(`#startInternal: maybeFetchList... DONE`);
 
     const enrollAndEntitleData =
       await lazy.IPPEnrollAndEntitleManager.maybeEnrollAndEntitle(abortSignal);
     if (!enrollAndEntitleData || !enrollAndEntitleData.isEnrolledAndEntitled) {
+        lazy.logConsole.debug(`#startInternal: ${enrollAndEntitleData}`);
       throw enrollAndEntitleData?.error || ERRORS.GENERIC;
     }
 
     // Check if we aborted before starting the channel filter.
     if (abortSignal?.aborted) {
+        lazy.logConsole.debug(`#startInternal: aborted`);
       return false;
     }
 
@@ -363,6 +382,7 @@ class IPPProxyManagerSingleton extends EventTarget {
     // If the current proxy pass is valid, no need to re-authenticate.
     // Throws an error if the proxy pass is not available.
     if (this.#pass == null || this.#pass.shouldRotate()) {
+        lazy.logConsole.debug(`#startInternal: shouldRotate ${this.#pass}`);
       const { pass, usage, error } = await this.#getPassAndUsage(abortSignal);
       if (usage) {
         this.#setUsage(usage);
@@ -373,6 +393,7 @@ class IPPProxyManagerSingleton extends EventTarget {
       }
 
       if (error || !pass) {
+          lazy.logConsole.debug(`#startInternal: PASS_UNAVAILABLE`);
         throw ERRORS.PASS_UNAVAILABLE;
       }
       this.#pass = pass;
@@ -382,6 +403,7 @@ class IPPProxyManagerSingleton extends EventTarget {
     const location = lazy.IPProtectionServerlist.getDefaultLocation();
     const server = lazy.IPProtectionServerlist.selectServer(location?.city);
     if (!server) {
+        lazy.logConsole.debug(`#startInternal: !server ${location} ${server}`);
       throw ERRORS.SERVER_NOT_FOUND;
     }
 
@@ -396,9 +418,11 @@ class IPPProxyManagerSingleton extends EventTarget {
 
     if (!!this.#connection?.active && !!this.#connection?.proxyInfo) {
       this.#activatedAt = ChromeUtils.now();
+        lazy.logConsole.debug(`#startInternal: active ${this.#activatedAt}`);
       return true;
     }
 
+      lazy.logConsole.debug(`#startInternal: not active`);
     return false;
   }
 
@@ -409,6 +433,7 @@ class IPPProxyManagerSingleton extends EventTarget {
    * True if started by user action, false if system action
    */
   async stop(userAction = true) {
+      lazy.logConsole.debug(`stop`);
     if (this.#state === IPPProxyStates.ACTIVATING) {
       if (!this.#activatingPromise) {
         throw new Error(ERRORS.MISSING_PROMISE);
@@ -455,6 +480,7 @@ class IPPProxyManagerSingleton extends EventTarget {
    * Stop any connections and reset the pass and usage if the user has changed.
    */
   async reset() {
+      lazy.logConsole.debug(`#reset`);
     this.#pass = null;
     this.#usage = null;
     if (this.#usageRefreshAbortController) {
@@ -488,6 +514,7 @@ class IPPProxyManagerSingleton extends EventTarget {
   }
 
   async #handleEvent(_event) {
+      lazy.logConsole.debug(`#handleEvent: ${_event} ${lazy.IPProtectionService.state}`);
     if (lazy.IPProtectionService.state !== lazy.IPProtectionStates.READY) {
       await this.reset();
     }

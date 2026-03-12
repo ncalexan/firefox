@@ -27,12 +27,14 @@ let extraHelpers = [];
 
 export const IPProtectionActivator = {
   addHelpers(helpers) {
+      dump(`IPProtectionActivator: addHelpers ${helpers}`);
     extraHelpers.push(...helpers);
   },
   setupHelpers() {
     IPProtectionService.setHelpers([...coreHelpers, ...extraHelpers]);
   },
   init() {
+      dump(`IPProtectionActivator: init ${IPProtectionService}`);
     this.setupHelpers();
     return IPProtectionService.init();
   },

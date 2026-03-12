@@ -34,6 +34,11 @@
         android:title="@string/preferences_sync_debug"
         app:isPreferenceVisible="false" />
 
+        <androidx.preference.Preference
+            android:key="@string/pref_key_ip_protection_settings"
+            app:iconSpaceReserved="false"
+            android:title="@string/preferences_ip_protection_title" />
+
     <androidx.preference.PreferenceCategory
         android:title="@string/preferences_category_general"
         android:layout="@layout/preference_category_no_icon_style">
@@ -115,11 +120,6 @@
             android:key="@string/pref_key_https_only_settings"
             app:iconSpaceReserved="false"
             android:title="@string/preferences_https_only_title" />
-
-        <androidx.preference.Preference
-            android:key="@string/pref_key_ip_protection_settings"
-            app:iconSpaceReserved="false"
-            android:title="@string/preferences_ip_protection_title" />
 
         <androidx.preference.Preference
             android:key="@string/pref_key_doh_settings"

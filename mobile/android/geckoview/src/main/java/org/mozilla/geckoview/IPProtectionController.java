@@ -6,6 +6,8 @@
 
 package org.mozilla.geckoview;
 
+import android.util.Log;
+
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +22,8 @@ import org.mozilla.gecko.util.ThreadUtils;
 
 /** Controller for managing IP protection state. */
 public class IPProtectionController {
+
+  public static final String LOG_TAG = "IPProtectionController";
 
   /** The service has not been initialized yet. */
   public static final int SERVICE_STATE_UNINITIALIZED = 0;
@@ -141,6 +145,12 @@ public class IPProtectionController {
       max = bundle.getInt("max", -1);
       resetTime = bundle.getString("resetTime");
     }
+
+    @NonNull
+    @Override
+    public String toString() {
+      return "serviceState=" + serviceState + " proxyState=" + proxyState + " lastError=" + lastError;
+    }
   }
 
   /**
@@ -214,6 +224,7 @@ public class IPProtectionController {
    */
   @UiThread
   public @NonNull GeckoResult<StateInfo> setTokenProvider(final @Nullable TokenProvider provider) {
+    Log.e(LOG_TAG, "setTokenProvider");
     ThreadUtils.assertOnUiThread();
     mTokenProvider = provider;
     final GeckoBundle bundle = new GeckoBundle(1);
@@ -234,7 +245,11 @@ public class IPProtectionController {
     ThreadUtils.assertOnUiThread();
     return EventDispatcher.getInstance()
         .queryBundle("GeckoView:IPProtection:GetState", null)
-        .map(StateInfo::new);
+        .map(StateInfo::new)
+            .map(stateInfo -> {
+              Log.e(LOG_TAG, "GeckoView:IPProtection:GetState: " + stateInfo);
+              return stateInfo;
+            });
   }
 
   /**
@@ -247,7 +262,11 @@ public class IPProtectionController {
     ThreadUtils.assertOnUiThread();
     return EventDispatcher.getInstance()
         .queryBundle("GeckoView:IPProtection:Activate", null)
-        .map(StateInfo::new);
+        .map(StateInfo::new)
+            .map(stateInfo -> {
+              Log.e(LOG_TAG, "GeckoView:IPProtection:Activate: " + stateInfo);
+              return stateInfo;
+            });
   }
 
   /**
@@ -260,7 +279,11 @@ public class IPProtectionController {
     ThreadUtils.assertOnUiThread();
     return EventDispatcher.getInstance()
         .queryBundle("GeckoView:IPProtection:Deactivate", null)
-        .map(StateInfo::new);
+        .map(StateInfo::new)
+            .map(stateInfo -> {
+              Log.e(LOG_TAG, "GeckoView:IPProtection:Activate: " + stateInfo);
+              return stateInfo;
+            });
   }
 
   private class EventListener implements BundleEventListener {
@@ -268,11 +291,13 @@ public class IPProtectionController {
     public void handleMessage(
         final String event, final GeckoBundle message, final EventCallback callback) {
       if ("GeckoView:IPProtection:StateChanged".equals(event)) {
+        Log.e(LOG_TAG, "GeckoView:IPProtection:StateChanged: " + event + " (delegate " + ((mDelegate != null) ? "exists)" : "does not exist)"));
         if (mDelegate != null) {
           mDelegate.onStateChanged(new StateInfo(message));
         }
       } else if ("GeckoView:IPProtection:GetToken".equals(event)) {
         if (mTokenProvider == null) {
+          Log.e(LOG_TAG, "GeckoView:IPProtection:GetToken: " + event + ": no token provider");
           callback.sendError("No token provider");
           return;
         }
@@ -281,6 +306,7 @@ public class IPProtectionController {
                 .getToken()
                 .map(
                     token -> {
+                      Log.e(LOG_TAG, "GeckoView:IPProtection:GetToken: " + event + ": token: " + token);
                       final GeckoBundle result = new GeckoBundle(1);
                       result.putString("token", token);
                       return result;

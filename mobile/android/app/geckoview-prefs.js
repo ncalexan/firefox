@@ -93,6 +93,8 @@ pref("browser.ipProtection.cacheDisabled", true);
 pref("browser.ipProtection.enabled", true);
 pref("browser.ipProtection.optedOut", false);
 
+pref("browser.ipProtection.log", true);
+
 // Open in tab preferences
 pref("browser.link.open_newwindow", 3);
 

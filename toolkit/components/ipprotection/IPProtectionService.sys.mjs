@@ -23,6 +23,15 @@ ChromeUtils.defineESModuleGetters(lazy, {
 
 const ENABLED_PREF = "browser.ipProtection.enabled";
 
+const LOG_PREF = "browser.ipProtection.log";
+
+ChromeUtils.defineLazyGetter(lazy, "logConsole", function () {
+    return console.createInstance({
+    prefix: "IPProtectionService",
+    maxLogLevel: Services.prefs.getBoolPref(LOG_PREF, false) ? "Debug" : "Warn",
+  });
+});
+
 /**
  * @typedef {object} IPProtectionStates
  *  List of the possible states of the IPProtectionService.
@@ -99,6 +108,8 @@ class IPProtectionServiceSingleton extends EventTarget {
    * Setups the IPProtectionService if enabled.
    */
   async init() {
+      lazy.logConsole.debug(`init ${this.#state} ${this.featureEnabled} ${this.#helpers}`);
+
     if (
       this.#state !== IPProtectionStates.UNINITIALIZED ||
       !this.featureEnabled
@@ -119,6 +130,8 @@ class IPProtectionServiceSingleton extends EventTarget {
    * Removes the UI widget.
    */
   uninit() {
+      lazy.logConsole.debug(`init ${this.#state} ${this.featureEnabled} ${this.#helpers}`);
+
     if (this.#state === IPProtectionStates.UNINITIALIZED) {
       return;
     }
@@ -140,7 +153,10 @@ class IPProtectionServiceSingleton extends EventTarget {
    * Callers should update their own inputs before invoking this.
    */
   #updateState() {
-    this.#setState(this.#computeState());
+      let s = this.#computeState();
+      lazy.logConsole.debug(`#updateState ${s}`);
+
+    this.#setState(s);
   }
 
   /**
@@ -167,6 +183,7 @@ class IPProtectionServiceSingleton extends EventTarget {
     // For non authenticated users, we don't know yet their enroll state so the UI
     // is shown and they have to login.
     if (!lazy.IPPSignInWatcher.isSignedIn) {
+        lazy.logConsole.debug(`#computeState: !isSignedIn`);
       return IPProtectionStates.UNAUTHENTICATED;
     }
 
@@ -177,6 +194,7 @@ class IPProtectionServiceSingleton extends EventTarget {
       !lazy.IPPEnrollAndEntitleManager.isEnrolledAndEntitled &&
       !lazy.IPPEnrollAndEntitleManager.isEnrolling
     ) {
+        lazy.logConsole.debug(`#computeState: !enrolled`);
       return IPProtectionStates.UNAUTHENTICATED;
     }
 
@@ -191,6 +209,7 @@ class IPProtectionServiceSingleton extends EventTarget {
    */
   #setState(newState) {
     if (newState === this.#state) {
+        lazy.logConsole.debug(`#setState: === ${newState}`);
       return;
     }
 
@@ -207,6 +226,8 @@ class IPProtectionServiceSingleton extends EventTarget {
    * @param {IPProtectionStates} prevState
    */
   #stateChanged(state, prevState) {
+      lazy.logConsole.debug(`stateChanged ${state} ${prevState}`);
+
     this.dispatchEvent(
       new CustomEvent("IPProtectionService:StateChanged", {
         bubbles: true,

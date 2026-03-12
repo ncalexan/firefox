@@ -22,6 +22,8 @@ import org.mozilla.geckoview.GeckoResult
 import org.mozilla.geckoview.IPProtectionController
 
 class IpProtectionFragment : Fragment() {
+    private val LOG_TAG = "IpProtectionFragment";
+
     private var binding: SettingsIpProtectionBinding? = null
     private var controller: IPProtectionController? = null
 
@@ -86,6 +88,7 @@ class IpProtectionFragment : Fragment() {
         b.ipProtectionSwitch.isEnabled = proxyState != IPProtectionController.PROXY_STATE_ACTIVATING
 
         b.ipProtectionSwitch.setOnCheckedChangeListener { _, isChecked ->
+            Log.e(LOG_TAG, "setOnCheckedChangeListener: ${isChecked}")
             if (isChecked) {
                 b.ipProtectionSwitch.isEnabled = false
                 viewLifecycleOwner.lifecycleScope.launch {
@@ -94,6 +97,7 @@ class IpProtectionFragment : Fragment() {
                             requireContext().components.backgroundServices.accountManager
                         val account = accountManager.authenticatedAccount()
                         if (account == null) {
+                            Log.e(LOG_TAG, "onCheckedChange: ${account}")
                             b.ipProtectionSwitch.isEnabled = true
                             b.ipProtectionSwitch.isChecked = false
                             return@launch
@@ -107,9 +111,10 @@ class IpProtectionFragment : Fragment() {
                                             "https://identity.mozilla.com/apps/vpn",
                                         )
                                     }
+                                    Log.e(LOG_TAG, "onCheckedChange: ${tokenInfo}")
                                     result.complete(tokenInfo?.token)
                                 } catch (e: Exception) {
-                                    Log.e("IpProtection", "getAccessToken failed", e)
+                                    Log.e(LOG_TAG, "getAccessToken failed", e)
                                     result.completeExceptionally(e)
                                 }
                             }
@@ -117,25 +122,33 @@ class IpProtectionFragment : Fragment() {
                         }
                         controller?.setTokenProvider(tokenProvider)?.accept(
                             {
+                                Log.e(LOG_TAG, "setTokenProvider: value")
                                 controller?.activate()?.accept(
-                                    { /* delegate will update UI */ },
                                     {
+                                        Log.e(LOG_TAG, "activate: value")
+                                    /* delegate will update UI */
+                                    },
+                                    {
+                                        Log.e(LOG_TAG, "activate: exception")
                                         b.ipProtectionSwitch.isEnabled = true
                                         b.ipProtectionSwitch.isChecked = false
                                     },
                                 )
                             },
                             {
+                                Log.e(LOG_TAG, "setTokenProvider: exception")
                                 b.ipProtectionSwitch.isEnabled = true
                                 b.ipProtectionSwitch.isChecked = false
                             },
                         )
                     } catch (e: Exception) {
+                        Log.e(LOG_TAG, "exception", e)
                         b.ipProtectionSwitch.isEnabled = true
                         b.ipProtectionSwitch.isChecked = false
                     }
                 }
             } else {
+                Log.e(LOG_TAG, "!isChecked, deactivating")
                 controller?.deactivate()?.accept(
                     { controller?.setTokenProvider(null) },
                     { /* ignore errors on deactivate */ },

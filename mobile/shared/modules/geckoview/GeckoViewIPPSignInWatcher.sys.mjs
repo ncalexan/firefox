@@ -2,6 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+import { GeckoViewUtils } from "resource://gre/modules/GeckoViewUtils.sys.mjs";
 import { XPCOMUtils } from "resource://gre/modules/XPCOMUtils.sys.mjs";
 
 const lazy = {};
@@ -16,11 +17,17 @@ ChromeUtils.defineESModuleGetters(lazy, {
     "moz-src:///toolkit/components/ipprotection/IPProtectionService.sys.mjs",
 });
 
+const { debug, warn } = GeckoViewUtils.initLogging("GeckoViewIPPSignInWatcher");
+
+debug`GeckoViewIPPSignInWatcher`;
+
 const gvConfig = {
   getToken: async (_abortSignal = null) => {
+      debug`getToken`;
     const response = await lazy.EventDispatcher.instance.sendRequestForResult({
       type: "GeckoView:IPProtection:GetToken",
     });
+      debug`getToken: ${response}`;
     const token = response?.token;
     if (!token) {
       return null;
@@ -55,6 +62,7 @@ class GeckoViewIPPSignInWatcherImpl extends EventTarget {
   #guardianClient = null;
 
   get isSignedIn() {
+      debug`isSignedIn: ${this.#signedIn}`;
     return this.#signedIn;
   }
 
@@ -63,17 +71,22 @@ class GeckoViewIPPSignInWatcherImpl extends EventTarget {
   }
 
   init() {
+      debug`init`;
     lazy.IPPSignInWatcher.setImplementation(this);
   }
 
-  initOnStartupCompleted() {}
+  initOnStartupCompleted() {
+      debug`initOnStartupCompleted`;
+  }
 
   uninit() {
+      debug`uninit`;
     this.#signedIn = false;
     this.#guardianClient = null;
   }
 
   setTokenProvider(hasProvider) {
+      debug`setTokenProvider hasProvider=${hasProvider}`;
     this.#signedIn = hasProvider;
     this.#guardianClient = hasProvider ? new lazy.GuardianClient(gvConfig) : null;
     lazy.IPProtectionService.updateState();

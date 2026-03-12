@@ -33,6 +33,7 @@ function ensureInitialized() {
 }
 
 function ensureListening() {
+    // debug`ensureListening ${listening}`;
   if (listening) {
     return;
   }
@@ -75,14 +76,18 @@ function buildStateResponse(lastError = null) {
 }
 
 function sendStateChanged() {
+      let r = buildStateResponse();
+    debug`sendStateChange: ${r}`;
   lazy.EventDispatcher.instance.sendRequest({
+    ...r,
     type: "GeckoView:IPProtection:StateChanged",
-    ...buildStateResponse(),
   });
 }
 
 export const GeckoViewIPProtection = {
   handleEvent(event) {
+      debug`handleEvent ${event}`;
+
     switch (event.type) {
       case "IPPProxyManager:StateChanged":
       case "IPPProxyManager:UsageChanged":
@@ -106,9 +111,12 @@ export const GeckoViewIPProtection = {
       case "GeckoView:IPProtection:Activate": {
         lazy.IPPProxyManager.start()
           .then(({ error }) => {
-            aCallback.onSuccess(buildStateResponse(error));
+              let r = buildStateResponse(error);
+            debug`onEvent ${aEvent} ${error} ${r}`;
+            aCallback.onSuccess(r);
           })
           .catch(err => {
+            debug`onEvent ${aEvent} ${err}`;
             aCallback.onError(`Activation failed: ${err}`);
           });
         break;
@@ -124,6 +132,8 @@ export const GeckoViewIPProtection = {
         break;
       }
       case "GeckoView:IPProtection:SetTokenProvider": {
+        debug`onEvent ${aEvent} ${aData}`;
+
         lazy.GeckoViewIPPSignInWatcher.setTokenProvider(!!aData?.hasProvider);
         aCallback.onSuccess(buildStateResponse());
         break;
