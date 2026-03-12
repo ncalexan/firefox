@@ -304,7 +304,7 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
         val megazordDeferred = setupMegazordNetwork()
 
         setDayNightTheme()
-        components.strictMode.enableStrictMode(true)
+        components.strictMode.enableStrictMode(false)
 
         initializeWebExtensionSupport()
 

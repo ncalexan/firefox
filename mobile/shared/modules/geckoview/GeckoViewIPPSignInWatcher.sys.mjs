@@ -17,7 +17,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
 });
 
 const gvConfig = {
-  withToken: async cb => {
+  getToken: async (_abortSignal = null) => {
     const response = await lazy.EventDispatcher.instance.sendRequestForResult({
       type: "GeckoView:IPProtection:GetToken",
     });
@@ -25,7 +25,10 @@ const gvConfig = {
     if (!token) {
       return null;
     }
-    return cb(token);
+    return {
+      token,
+      [Symbol.dispose]() {},
+    };
   },
   guardianEndpoint: "",
   fxaOrigin: "",

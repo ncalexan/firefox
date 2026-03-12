@@ -70,6 +70,10 @@ class IPProtectionServiceSingleton extends EventTarget {
   }
 
   get guardian() {
+    const guardianClient = lazy.IPPSignInWatcher.guardianClient;
+    if (guardianClient) {
+      return guardianClient;
+    }
     if (!this.#guardian) {
       this.#guardian = new lazy.GuardianClient();
     }

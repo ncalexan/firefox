@@ -158,7 +158,6 @@ class IpProtectionFragment : Fragment() {
         IPProtectionController.SERVICE_STATE_UNINITIALIZED -> "uninitialized"
         IPProtectionController.SERVICE_STATE_UNAVAILABLE -> "unavailable"
         IPProtectionController.SERVICE_STATE_UNAUTHENTICATED -> "unauthenticated"
-        IPProtectionController.SERVICE_STATE_OPTED_OUT -> "opted out"
         IPProtectionController.SERVICE_STATE_READY -> "ready"
         else -> "unknown"
     }
